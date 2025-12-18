@@ -6,7 +6,7 @@ from email.mime.text import MIMEText
 def get_weather():
     # 從 GitHub Secrets 讀取 API Key
     api_key = os.environ.get('WEATHER_API_KEY')
-    city = "Taipei"  # 你可以改成你的城市，如 Taichung, Kaohsiung
+    city = "Taichung"  # 你可以改成你的城市，如 Taichung, Kaohsiung
     
     # 呼叫 OpenWeatherMap API (使用攝氏單位 units=metric)
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric&lang=zh_tw"
