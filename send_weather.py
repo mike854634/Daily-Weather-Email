@@ -47,10 +47,11 @@ def send_email(content):
 
     msg = MIMEText(content)
     msg['Subject'] = '🌍 每日天氣報告'
-    msg['From'] = my_email
+    msg['From'] = 'mike854634@gmail.com'
     
     msg['To'] = f"{email_1}, {email_2}"
     print(f"要準備傳送給{email_1}, {email_2}")
+    print(f"要準備傳送囉!")
     try:
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
             server.login(my_email, password)
