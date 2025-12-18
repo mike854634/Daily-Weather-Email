@@ -2,8 +2,8 @@ name: Daily Weather Email
 
 on:
   schedule:
-    # 台灣時間 (UTC+8) 的 10:40 等於 UTC 的 02:40
-    - cron: '45 2 * * *'
+    # 台灣時間 (UTC+8) 的 7:39 等於 UTC 的 23:30
+    - cron: '30 23 * * *'
   workflow_dispatch: # 允許手動觸發測試
 
 jobs:
