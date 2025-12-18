@@ -9,7 +9,8 @@ def get_weather():
     city = "Taichung"  # 你可以改成你的城市，如 Taichung, Kaohsiung
     
     # 呼叫 OpenWeatherMap API (使用攝氏單位 units=metric)
-    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric&lang=zh_tw"
+    # url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric&lang=zh_tw"
+    url = f"https://api.openweathermap.org/data/3.0/onecall?q={city}&appid={api_key}"
     
     try:
         response = requests.get(url)
