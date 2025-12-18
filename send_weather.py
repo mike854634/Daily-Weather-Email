@@ -36,17 +36,29 @@ def get_weather():
         return f"發生錯誤：{e}"
 
 def send_email(content):
-    my_email = os.environ.get('EMAIL_USER')
+    my_email = os.environ.get('EMAIL_USER') 
     password = os.environ.get('EMAIL_PASS')
 
-    msg = MIMEText(content)
-    msg['Subject'] = '🌍 您的每日天氣報告'
-    msg['From'] = my_email
-    msg['To'] = 'mike854634@gmail.com'
+    email_1 = os.environ.get('RECEIVED_EMAIL_USER_1') 
+    email_2 = os.environ.get('RECEIVED_EMAIL_USER_2') 
 
-    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
-        server.login(my_email, password)
-        server.send_message(msg)
+    # 1. 定義收件人清單 (用串列 List 儲存)
+    # recipients = ['mike854634@gmail.com', 'jenna2375@gmail.com']
+
+    msg = MIMEText(content)
+    msg['Subject'] = '🌍 每日天氣報告'
+    msg['From'] = my_email
+    
+    msg['To'] = f"{email_1}, {email_2}"
+
+    try:
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
+            server.login(my_email, password)
+            # 3. 傳送郵件時傳入收件人清單
+            server.send_message(msg)
+        print(f"郵件已成功寄送至: {', '.join(recipients)}")
+    except Exception as e:
+        print(f"寄送失敗: {e}")
 
 if __name__ == "__main__":
     weather_info = get_weather()
