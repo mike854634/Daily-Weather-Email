@@ -47,7 +47,7 @@ def send_email(content):
 
     msg = MIMEText(content)
     msg['Subject'] = '🌍 每日天氣報告'
-    msg['From'] = 'mike854634@gmail.com'
+    msg['From'] = my_email
     
     msg['To'] = f"{email_1}, {email_2}"
     print(f"{my_email}, {password}要準備傳送給{email_1}, {email_2}")
