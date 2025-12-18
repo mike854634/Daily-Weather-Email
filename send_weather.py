@@ -49,14 +49,14 @@ def send_email(content):
     msg['Subject'] = '🌍 每日天氣報告'
     msg['From'] = my_email
     
-    msg['To'] = f"{email_1}"
+    msg['To'] = f"{email_1}, {email_2}"
 
     try:
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
             server.login(my_email, password)
             # 3. 傳送郵件時傳入收件人清單
             server.send_message(msg)
-        print(f"郵件已成功寄送至: {', '.join(recipients)}")
+        print(f"郵件已成功寄送至: {email_1}, {email_2}")
     except Exception as e:
         print(f"寄送失敗: {e}")
 
