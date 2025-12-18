@@ -13,7 +13,7 @@ def send_email(content):
     msg = MIMEText(content)
     msg['Subject'] = '每日天氣報告'
     msg['From'] = os.environ['EMAIL_USER']
-    msg['To'] = os.environ['EMAIL_USER']
+    msg['To'] = 'mike854634@gmail.com'
 
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
         server.login(os.environ['EMAIL_USER'], os.environ['EMAIL_PASS'])
