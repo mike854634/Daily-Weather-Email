@@ -1,0 +1,29 @@
+name: Daily Weather Email
+
+on:
+  schedule:
+    # 台灣時間 (UTC+8) 的 10:40 等於 UTC 的 02:40
+    - cron: '40 2 * * *'
+  workflow_dispatch: # 允許手動觸發測試
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run Weather Script
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}     # 在 GitHub Settings 設定
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}     # 在 GitHub Settings 設定
+          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+        run: python send_weather.py
