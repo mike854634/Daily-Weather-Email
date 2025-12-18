@@ -42,9 +42,6 @@ def send_email(content):
     email_1 = os.environ.get('RECEIVED_EMAIL_USER_1') 
     email_2 = os.environ.get('RECEIVED_EMAIL_USER_2') 
 
-    # 1. 定義收件人清單 (用串列 List 儲存)
-    # recipients = ['mike854634@gmail.com', 'jenna2375@gmail.com']
-
     msg = MIMEText(content)
     msg['Subject'] = '🌍 每日天氣報告'
     msg['From'] = my_email
