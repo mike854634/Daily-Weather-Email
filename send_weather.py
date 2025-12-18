@@ -50,7 +50,7 @@ def send_email(content):
     msg['From'] = my_email
     
     msg['To'] = f"{email_1}, {email_2}"
-
+    print(f"要準備傳送給{email_1}, {email_2}")
     try:
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
             server.login(my_email, password)
