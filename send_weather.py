@@ -49,7 +49,7 @@ def send_email(content):
     msg['Subject'] = '🌍 每日天氣報告'
     msg['From'] = my_email
     
-    msg['To'] = f"{email_1}, {email_2}"
+    msg['To'] = f"{email_1}"
 
     try:
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
