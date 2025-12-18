@@ -26,4 +26,6 @@ jobs:
           EMAIL_USER: ${{ secrets.EMAIL_USER }}     # 在 GitHub Settings 設定
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}     # 在 GitHub Settings 設定
           WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+          RECEIVED_EMAIL_USER_1: ${{ secrets.RECEIVED_EMAIL_USER_1 }}
+          RECEIVED_EMAIL_USER_2: ${{ secrets.RECEIVED_EMAIL_USER_2 }}
         run: python send_weather.py
